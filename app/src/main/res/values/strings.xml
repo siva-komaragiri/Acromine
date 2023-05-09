@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Acromine</string>
+    <string name="type_short_form">Type short form</string>
+    <string name="search_label">Search</string>
+    <string name="show_vars">Show vars</string>
+    <string name="searching_for">Searching for \"%s\"</string>
+    <string name="result_count">%s results</string>
+    <string name="error">Error</string>
 </resources>

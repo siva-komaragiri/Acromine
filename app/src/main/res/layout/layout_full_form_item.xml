@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="androidx.recyclerview.widget.RecyclerView" />
+        <variable
+            name="parentItem"
+            type="app.sivakomaragiri.acromine.data.LongForms" />
+    </data>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="4dp"
+        app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/longFormTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/showVarsBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{parentItem.lf}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tool:text="sfddsfdsfdsfdsfds" />
+        <TextView
+            android:id="@+id/longFormFreqTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/longFormTv"
+            app:layout_constraintEnd_toStartOf="@id/showVarsBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{`Frequency: ` +parentItem.freq}"
+            tool:text="sfddsfdsfdsfdsfds" />
+        <TextView
+            android:id="@+id/longFormYearTv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/longFormFreqTv"
+            app:layout_constraintEnd_toStartOf="@id/showVarsBtn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{`since: ` + parentItem.since}"
+            tool:text="sfddsfdsfdsfdsfds" />
+
+        <Button
+            android:id="@+id/showVarsBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/longFormTv"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_vars"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:id="@+id/childRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/longFormYearTv"
+            app:items="@{parentItem.vars}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+
+</layout>
